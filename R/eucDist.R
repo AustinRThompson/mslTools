@@ -12,7 +12,7 @@
 #' @examples
 eucDist <- function(x1,y1,x2,y2) {
   df <- data.frame(x1,y1,x2,y2) %>%
-    dplyr::mutate(eucDist = sqrt((x2 - x1)^2 + (y2 - y1)^2)) %>%
+    dplyr::mutate(eucDist = base::sqrt((x2 - x1)^2 + (y2 - y1)^2)) %>%
     dplyr::select(eucDist)
 
   return(df)
