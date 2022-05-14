@@ -8,8 +8,6 @@
 #' @export eucDist
 #'
 #' @examples
-library(sp)
-library(grDevices)
 cHull <- function(x,y) {
   xyCoords <- cbind(x,y) %>%
     as.data.frame() %>%
