@@ -9,19 +9,19 @@
 #'
 #' @examples
 cHull <- function(x,y) {
-  xyCoords <- cbind(x,y) %>%
-    as.data.frame() %>%
+  xyCoords <- base::cbind(x,y) %>%
+    base::as.data.frame() %>%
     dplyr::rename(x = 1,
                   y = 2) %>%
     dplyr::filter(!is.na(x)) %>%
     dplyr::filter(!is.na(y))
 
-  chullCoords <- grDevices::chull(x = xyCoords %>% pull(x),
-                           y = xyCoords %>% pull(y)) %>%
+  chullCoords <- grDevices::chull(x = xyCoords %>% dplyr::pull(x),
+                           y = xyCoords %>% dplyr::pull(y)) %>%
     c(., .[1]) %>%
     xyCoords[.,]
 
-  if (NROW(chullCoords) < 4) {
+  if (base::NROW(chullCoords) < 4) {
     cHull <- NA
   } else {
     cHull <- sp::Polygon(chullCoords, hole=F) %>%
