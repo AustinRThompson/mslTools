@@ -1,5 +1,6 @@
 test_that("cHull works", {
-  x <- c()
-  y <- c()
-  expect_equal(cHull() * 2, 4)
+  data(mtcars)
+  x <- c(mtcars$drat)
+  y <- c(mtcars$wt)
+  expect_equal(cHull(x, y), 3.94787)
 })

@@ -5,9 +5,10 @@
 #' @param y y of the coordinate pair
 #'
 #' @return This function returns the convex hull area for the set of points provided.
-#' @export eucDist
+#' @export cHull
 #'
 #' @examples
+library(tidyverse)
 cHull <- function(x,y) {
   xyCoords <- base::cbind(x,y) %>%
     base::as.data.frame() %>%
